@@ -22,11 +22,6 @@ public class MusiclibraryApplication {
 	@Bean
 	public CommandLineRunner demo(SongRepository sRepo, UserRepository uRep, PlaylistRepository pRepo) {
 	    return (args) -> {
-		Playlist p1 = new Playlist("ekalista");
-		Playlist p2 = new Playlist("toinenlista");
-		pRepo.deleteAll();
-		pRepo.save(p1);
-		pRepo.save(p2);
 
 		User user1 = new User("user", "$2a$10$U0021easazMrjG1E2VfKe.ptEgHYSW6RuGTnJFPFAUrBHTXaJUNwC", "USER", "user@user.com");
 		User user2 = new User("admin", "$2a$10$LWRNHeTjf/5FryyyIsUbKezOH1qqqOfJ45smIBjMcpeYP.FmWHscC", "ADMIN", "admin@admin.com");

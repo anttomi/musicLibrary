@@ -18,6 +18,7 @@ public class Playlist {
     @GeneratedValue(strategy=GenerationType.AUTO)
     private Long id;
     private String name;
+    @JsonIgnore
     @OneToMany(cascade = CascadeType.ALL, mappedBy="playlist")
     private List<Song> songs;
     
