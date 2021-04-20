@@ -44,6 +44,11 @@ public class SongController {
 	return (List<Song>) sRepo.findAll();
     }
     
+    @GetMapping(value = "/playlistlist")
+    public @ResponseBody List<Playlist> playlistListRest() {
+	return (List<Playlist>) pRepo.findAll();
+    }
+    
     @GetMapping(value =  {"/login", "/"})
     public String login() {
 	return "login";
