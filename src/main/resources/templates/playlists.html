@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+
+<head>
+<link type="text/css"rel="stylesheet" href="/css/bootstrap.min.css" th:href="@{css/bootstrap.min.css}"/>
+<link rel="stylesheet" href="css/css.css"/>
+    <title>Bookstore</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <script></script>
+</head>
+<body>
+<h1>Music Library</h1>
+<h1 th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]!</h1>
+<form th:action="@{/logout}" method="post">
+<input class="btn btn-danger" type="submit" value="Sign Out"/>
+<a class="btn btn-success" href="/library">Song Library</a>
+<br><br>
+</form>
+
+<table class="table table-striped">
+<thead><tr>
+<th>Name</th>
+<th>ID</th>
+<th></th>
+<th></th>
+</tr></thead>
+<tr th:each="playlist : ${playlists}">
+	<td><a class="playlistlink" th:text="${playlist.getName()}" th:href="@{/playlistsongs/{id}(id=${playlist.id})}"></a></td>
+	<td th:text="${playlist.id}"></td>
+	<td sec:authorize="hasAuthority('ADMIN')" class="btn btn-danger"><a th:href="@{/delete/{id}(id=${playlist.id})}">Delete</a></td>
+	<td class="btn btn-primary"><a th:href="@{/editplaylist/{id}(id=${playlist.id})}">Edit</a></td>
+</tr>
+
+</table>
+<a class="btn btn-success" href="/add">Add Song</a>
+<a class="btn btn-success" href="/addplaylist">Add Playlist</a>
+</body>
+</html>

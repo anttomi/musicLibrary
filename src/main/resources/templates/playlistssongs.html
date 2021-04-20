@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+
+<head>
+<link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css"/>
+<link type="text/css" rel="stylesheet" href="/css/css.css"/>
+    <title>Bookstore</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <script></script>
+</head>
+<body>
+<h1>Playlists Songs</h1>
+<h1 th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]!</h1>
+<form th:action="@{/logout}" method="post">
+<input class="btn btn-danger" type="submit" value="Sign Out"/>
+<a class="btn btn-success" href="/playlists">Playlists</a>
+<br><br>
+<h2 th:text="'Viewing playlist: ' + ${playlistName}"></h2>
+</form>
+
+<table class="table table-striped">
+<thead><tr>
+<th>Artist</th>
+<th>Name</th>
+<th>Album</th>
+<th>Genre</th>
+<th>Year</th>
+<th></th>
+<th></th>
+</tr></thead>
+<tr th:each="song : ${playlist}">
+	<td th:text="${song.artist}"/>
+	<td th:text="${song.name}"/>
+	<td th:text="${song.album}"/>
+	<td th:text="${song.genre}"/>
+	<td th:text="${song.year}"/>
+	
+	<td sec:authorize="hasAuthority('ADMIN')" class="btn btn-danger"><a th:href="@{/delete/{id}(id=${song.id})}">Delete</a></td>
+	<td class="btn btn-primary"><a th:href="@{/edit/{id}(id=${song.id})}">Edit</a></td>
+</tr>
+
+</table>
+
+<a class="btn btn-success" href="/add">Add Song</a>
+<a class="btn btn-success" href="/addplaylist">Add Playlist</a>
+</body>
+</html>

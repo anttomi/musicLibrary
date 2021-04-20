@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Music Library</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<h1>Playlists</h1>
+
+<form th:object="${playlist}" th:action="@{../saveplaylist}" action="#" method="post">
+<label for="id"></label>
+<input type="hidden" id="id" th:field="*{id}" readonly="readonly" />
+<br>
+<label for="name">Name: </label>
+<input id="name" th:field="*{name}"/>
+<br>
+
+<input type="submit" value="Save"/>
+</form>
+
+
+</body>
+</html>
