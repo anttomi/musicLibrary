@@ -46,7 +46,7 @@ public class SongController {
     
     @GetMapping(value =  {"/login", "/"})
     public String login() {
-	return "/login";
+	return "login";
     }
     
     @RequestMapping(value = "/add")
