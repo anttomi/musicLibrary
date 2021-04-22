@@ -122,7 +122,7 @@ public class SongController {
     @PreAuthorize("hasAuthority('ADMIN')")
     public String deletePlaylist(@PathVariable("id") Long playlistId, Model model) {
 	pRepo.deleteById(playlistId);
-	return "redirect:../library";
+	return "redirect:../playlists";
     }
     
     //save a song when edited
