@@ -9,11 +9,15 @@
 <h1>Playlists</h1>
 
 <form th:object="${playlist}" th:action="@{../saveplaylist}" action="#" method="post">
+
 <label for="id"></label>
 <input type="hidden" id="id" th:field="*{id}" readonly="readonly" />
 <br>
-<label for="name">Name: </label>
+<div>
+<label for="name">Name: 
 <input id="name" th:field="*{name}" class="form-control"/>
+</label>
+</div>
 <br>
 
 <input type="submit" value="Save" class="btn btn-success"/>

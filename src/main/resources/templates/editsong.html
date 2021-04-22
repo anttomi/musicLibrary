@@ -3,38 +3,50 @@
 <head>
     <title>Music Library</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" th:href="@{css/bootstrap.min.css}" />
+    <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" />
 </head>
 <body>
-<h1>Songs</h1>
+<h1>Song Edit</h1>
 
 <form th:object="${song}" th:action="@{../save}" action="#" method="post">
+
 <label for="id"></label>
 <input type="hidden" id="id" th:field="*{id}" readonly="readonly" />
 <br>
-<label for="name">Name: </label>
-<input id="name" th:field="*{name}" class="form-control"/>
+<div>
+<label for="name">Name: 
+<input id="name" th:field="*{name}" class="form-control"/></label>
+</div>
 <br>
-<label for="artist">Artist: </label>
-<input id="artist" th:field="*{artist}" class="form-control"/>
+<div>
+<label for="artist">Artist: 
+<input id="artist" th:field="*{artist}" class="form-control"/></label>
+</div>
 <br>
-<label for="album">Album: </label>
-<input id="album" th:field="*{album}" class="form-control"/>
+<div>
+<label for="album">Album: 
+<input id="album" th:field="*{album}" class="form-control"/></label>
+</div>
 <br>
-<label for="genre">genre: </label>
-<input id="genre" th:field="*{genre}" class="form-control"/>
+<div>
+<label for="genre">genre: 
+<input id="genre" th:field="*{genre}" class="form-control"/></label>
+</div>
 <br>
-<label for="year">Year: </label>
-<input id="year" th:field="*{year}" class="form-control"/>
+<div>
+<label for="year">Year: 
+<input id="year" th:field="*{year}" class="form-control"/></label>
+</div>
 <br>
-<label for="playlist">Playlists: </label>
+<div>
+<label for="playlist">Playlists: 
 <select id="playlist" th:field="*{playlist}" class="form-control">
 	<option th:each="playlist: ${playlists}" 
 	th:value="${playlist.id}"
 	th:text="${playlist.name}">
 	</option>
-	</select>
-
+	</select></label>
+</div>
 	<br>
 <input type="submit" value="Save" class="btn btn-success"/>
 </form>
