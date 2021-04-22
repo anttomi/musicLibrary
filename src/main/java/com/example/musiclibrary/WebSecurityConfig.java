@@ -38,7 +38,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		.and()
 	.logout()
 		.permitAll();
-	
+	//Let the api and login to be accessed by everyone
 	
 	}
 

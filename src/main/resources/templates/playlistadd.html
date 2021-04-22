@@ -3,16 +3,17 @@
 <head>
     <title>Music Library</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" th:href="@{css/bootstrap.min.css}" />
 </head>
 <body>
 <h1>Songs</h1>
 
 <form th:object="${playlist}" th:action="@{saveplaylist}" action="#" method="post">
 <label for="name">Name: </label>
-<input id="name" th:field="*{name}"/>
+<input id="name" th:field="*{name}" class="form-control"/>
 <br>
 
-<input type="submit" value="Save"/>
+<input type="submit" value="Save" class="btn btn-success"/>
 </form>
 
 
