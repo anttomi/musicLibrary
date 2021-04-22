@@ -75,7 +75,7 @@ public class SongController {
     }
     
     //Edit a song with the selected id 
-    @GetMapping(value = "/edit/{id}")
+    @RequestMapping(value = "/edit/{id}")
     public String editSong(@PathVariable("id") Long songId, Model model) {
 	model.addAttribute("song", sRepo.findById(songId));
 	model.addAttribute("playlists", pRepo.findAll());
