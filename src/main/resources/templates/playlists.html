@@ -27,7 +27,7 @@
 <tr th:each="playlist : ${playlists}">
 	<td><a class="playlistlink" th:text="${playlist.getName()}" th:href="@{/playlistsongs/{id}(id=${playlist.id})}"></a></td>
 	<td th:text="${playlist.id}"></td>
-	<td sec:authorize="hasAuthority('ADMIN')" class="btn btn-danger"><a th:href="@{/delete/{id}(id=${playlist.id})}">Delete</a></td>
+	<td sec:authorize="hasAuthority('ADMIN')" class="btn btn-danger"><a th:href="@{/deleteplaylist/{id}(id=${playlist.id})}">Delete</a></td>
 	<td class="btn btn-primary"><a th:href="@{/editplaylist/{id}(id=${playlist.id})}">Edit</a></td>
 </tr>
 

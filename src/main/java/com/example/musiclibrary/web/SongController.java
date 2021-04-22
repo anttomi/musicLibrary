@@ -117,6 +117,14 @@ public class SongController {
 	return "redirect:../library";
     }
     
+    //Delete a playlist with selected id
+    @GetMapping(value = "/deleteplaylist/{id}")
+    @PreAuthorize("hasAuthority('ADMIN')")
+    public String deletePlaylist(@PathVariable("id") Long playlistId, Model model) {
+	pRepo.deleteById(playlistId);
+	return "redirect:../library";
+    }
+    
     //save a song when edited
     @PostMapping(value = "/save")
     public String songSave(Song song) {
